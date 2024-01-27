@@ -1,4 +1,4 @@
-# McClubs-Enhanced
+# McGill-Clubs-Enhanced
 
 - 👋 Hi, We are @llandauro, ...
 - 👀 We are interested in increasing clubs accessibility for students at McGill University
