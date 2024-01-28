@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Fetch Example</title>
+</head>
+<body>
+
+    <h1>API Data:</h1>
+    <div id="api-data"></div>
+
+    <script>
+        // Replace 'YOUR_API_URL' with the actual URL of the API you want to fetch
+        const apiUrl = 'https://www.instagram.com/web/search/topsearch/?context=blended&query=avengers';
+
+        // Fetch data from the API
+        fetch(apiUrl)
+            .then(response => {
+                // Check if the request was successful (status code 200-299)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                // Parse the response as JSON
+                return response.json();
+            })
+            .then(data => {
+                // Handle the JSON data
+                console.log('API Data:', data);
+                // You can further process the data or update the DOM with the received information
+                document.getElementById('api-data').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+    </script>
+
+</body>
+</html>
