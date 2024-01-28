@@ -6,13 +6,6 @@
     /* Add additional font formats if necessary */
 }
 
-
-body {
-    font-family: EBGaramond, typeface;
-    margin: 0;
-    padding: 0;
-}
-
 header {
     background-color: #fff;
     color: #fff;
@@ -21,43 +14,45 @@ header {
 }
 
 main {
-    display: flex;
-    justify-content: space-between;
+    flex: 2;
     padding: 20px;
+    background-color: antiquewhite;
 }
 
-.calendar {
-    flex-grow: 2;
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f0ead6;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .filter-section {
     width: 20%;
     padding: 20px;
-    background-color: #f0f0f0;
+    color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .filter-section h2 {
+    font-family: 'Courier New', Courier, monospace;
     color: #333;
 }
 
 footer {
-    background-color: #333;
+    background-color: #f0ead6;
     color: #fff;
     text-align: center;
     padding: 10px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #6d6e79;
-}
+
 
 h1 {
     color: #ED182F;
     font-family: EBGaramond, typeface;
 }
+
+
 
 #api-data {
     background-color: #fff;
