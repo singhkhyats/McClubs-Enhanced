@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@event-calendar/core": "^2.6.0",
+    "@event-calendar/day-grid": "^2.6.0"
+  }
+}
