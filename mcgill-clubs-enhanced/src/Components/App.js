@@ -21,21 +21,33 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1> {data.length} Events are happening !</h1>
-      <br></br>
+    <>
+      <header>
+        <h1>McGill Clubs Enhanced</h1>
+      </header>
+
       <div>
-        {data.map((item) => (
-          <div key={item.name}>
-            <h1>{item.date}</h1>
-            <h2>
-              {item.name} organised by {item.organiser}
-            </h2>
-            <p>{item.description}</p>
+        <h1> {data.length} Events are happening !</h1>
+        <br></br>
+
+        <main class="events">
+          <div>
+            {data.map((item) => (
+              <>
+                <div key={item.name}>
+                  <h2>{item.date}</h2>
+                  <h3>
+                    {item.name} organised by {item.organiser}
+                  </h3>
+                  <p>{item.description}</p>
+                </div>
+                <br />
+              </>
+            ))}
           </div>
-        ))}
+        </main>
       </div>
-    </div>
+    </>
   );
 }
 
