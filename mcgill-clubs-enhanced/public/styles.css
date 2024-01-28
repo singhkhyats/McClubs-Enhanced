@@ -1,14 +1,21 @@
 /* styles.css */
 
+@font-face {
+    font-family: 'EBGaramond'; /* Name your font */
+    src: url('fonts/EBGaramond-VariableFont_wght.ttf') format('truetype'); /* Path to your font file */
+    /* Add additional font formats if necessary */
+}
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: EBGaramond, typeface;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
+    color: #ED182F;
     text-align: center;
     padding: 10px;
 }
