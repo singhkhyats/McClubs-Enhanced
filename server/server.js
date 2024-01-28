@@ -5,10 +5,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.listen(8000, () => {
-  console.log(`Server is running on port 8000.`);
-});
-
 // import axios from "axios";
 const axios = require("axios");
 
@@ -92,8 +88,9 @@ const getEmailBodies = async (mailAddress) => {
 };
 
 const parseEmails = async () => {
-  const GPT_PROMPT = `This is an email newsletter sent by one of McGill clubs. Scrape through it and extract the one main event that is happening. if you find more than one event, prioritize the one that has a location and date specified. The output should be a list. all the list's elements headers such as "event name", "event description" etc should be in small case letters. and formatter exactly like below.
+  const GPT_PROMPT = `This is an email newsletter sent by one of McGill clubs. Scrape through it and extract the one main event that is happening. if you find more than one event, prioritize the one that has a location and date specified. The output should be a list. all the list's elements headers such as "event name", "event description" etc should be in small case letters. and formatter exactly like below. for the extracted date use the following formatting: '2022-01-27T12:00' if there is a time and '2022-01-27' if there is no specific time. 
   - event name
+  - event organiser
   - event description
   - event location
   - event date
@@ -105,17 +102,18 @@ const parseEmails = async () => {
 
   const GPT_KEYS = [
     "event name: ",
+    "event organiser: ",
     "event description: ",
     "event location: ",
     "event date: ",
   ];
-  const KEYS = ["name", "description", "location", "date"];
+  const KEYS = ["name", "organiser", "description", "location", "date"];
 
   const emailBodies = await getEmailBodies("mcgillclubs@blondmail.com");
 
   const OpenAI = require("openai");
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
 
@@ -157,6 +155,10 @@ parseEmails().then((r) => {
   app.get("/message", (req, res) => {
     res.json(r);
   });
+});
+
+app.listen(8000, () => {
+  console.log(`Server is running on port 8000.`);
 });
 
 // Function to delete the last email
