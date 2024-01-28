@@ -1,0 +1,71 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'EBGaramond'; /* Name your font */
+    src: url('fonts/EBGaramond-VariableFont_wght.ttf') format('truetype'); /* Path to your font file */
+    /* Add additional font formats if necessary */
+}
+
+
+body {
+    font-family: EBGaramond, typeface;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.calendar {
+    flex-grow: 2;
+}
+
+.filter-section {
+    width: 20%;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.filter-section h2 {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #6d6e79;
+}
+
+h1 {
+    color: #ED182F;
+    font-family: EBGaramond, typeface;
+}
+
+#api-data {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+    white-space: pre-wrap; /* Preserve line breaks */
+}
+
+/* Add more styles as needed */
