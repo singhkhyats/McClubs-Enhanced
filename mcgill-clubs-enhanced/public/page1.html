@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McGillClubEnhanced</title>
+    <title>McGill Clubs Enhanced</title>
 
     <!-- Add your CSS stylesheets or internal styles here -->
     <link rel="stylesheet" href="styles.css">
@@ -24,26 +24,44 @@
         <!-- Add navigation links or menu here -->
     </header>
 
-    <main>
-        <section class="calendar">
-            <!-- Your main content goes here -->
-
+    <main class="table">
+        <section class="table_header">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Club</th>
+                        <th>Jan. 29</th>
+                        <th>Jan. 30</th>
+                        <th>Jan. 31</th>
+                        <th>Feb. 1</th>
+                        <th>Feb. 2</th>
+                        <th>Feb. 3</th>
+                        <th>Feb. 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SLASA - Spanish & Latin American Student Association</td>
+                        <td></td>
+                        <td>Coffee & Spanish 16:00 - 18:00</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
-
-        <aside class="filter-section">
-            <h2>Filter Options</h2>
-            <!-- Add your filter options here -->
-            <label for="category">Category:</label>
-            <select id="category" name="category">
-                <option value="all">All</option>
-                <option value="work">Work</option>
-                <option value="personal">Personal</option>
-                <option value="meeting">Meeting</option>
-                <!-- Add more options as needed -->
-            </select>
-        </aside>
-
     </main>
+
+    <aside class="filter-section">
+        <h2>Filter Options</h2>
+        <!-- Add your filter options here -->
+        <label for="category">Select Clubs:</label>
+        <select id="category" name="category">
+            <option value="all">All</option>
+            <option value="knitting">Knitting Club</option>
+            <option value="biomedical">Biomedical Engineering Club</option>
+            <option value="slasa">SLASA</option>
+            <!-- Add more options as needed -->
+        </select>
+    </aside>
 
     <footer>
         <!-- Your footer content goes here -->
