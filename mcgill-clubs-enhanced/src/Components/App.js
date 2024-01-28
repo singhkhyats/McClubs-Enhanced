@@ -5,13 +5,6 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/message").then((res) => console.log(res));
-  //   // .then((data) => setMessage(data.message))
-  //   // .then(console.log(message));
-  // }, [message]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,16 +22,19 @@ function App() {
 
   return (
     <div>
-      <h1>React ChatGPT Integration{data.length}</h1>
+      <h1> {data.length} Events are happening !</h1>
+      <br></br>
       <div>
-        <h1>List of Objects</h1>
-        <ul>
-          {data.map((item) => (
-            <li key={item.name}>{item.name}</li>
-          ))}
-        </ul>
+        {data.map((item) => (
+          <div key={item.name}>
+            <h1>{item.date}</h1>
+            <h2>
+              {item.name} organised by {item.organiser}
+            </h2>
+            <p>{item.description}</p>
+          </div>
+        ))}
       </div>
-      <Gpt />
     </div>
   );
 }

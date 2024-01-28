@@ -113,7 +113,7 @@ const parseEmails = async () => {
 
   const OpenAI = require("openai");
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
 
