@@ -19,14 +19,13 @@ function App() {
         axios
           .get("http://localhost:8000/message")
           .then((res) => setData(res.data));
-        // .then((r) => console.log("rRRRRRR", r));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []); //
+  }, []);
 
   return (
     <div>

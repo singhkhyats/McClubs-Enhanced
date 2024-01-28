@@ -138,16 +138,6 @@ const parseEmails = async () => {
   );
   console.log(result);
   return result;
-
-  //   const message = GPT_PROMPT + emailBodies[0].body;
-  //   const response = await openai.chat.completions.create({
-  //     model: "gpt-3.5-turbo",
-  //     messages: [{ role: "user", content: message }],
-  //     temperature: 0,
-  //     max_tokens: 1000,
-  //   });
-
-  //   console.log(response.choices[0].message.content);
 };
 
 // parseEmails();
