@@ -84,15 +84,76 @@ const getEmailBodies = async (mailAddress) => {
   const result = await Promise.all(
     Ids.map(async (id) => {
       const body = await getEmailBodyFromId(id);
-      console.log("id is ", id);
       return { id: id, body: body };
     })
   );
-  console.log(result.length);
+
   return result;
 };
 
-getEmailBodies("mcgillclubs@blondmail.com").then((r) => {
+const parseEmails = async () => {
+  const GPT_PROMPT = `This is an email newsletter sent by one of McGill clubs. Scrape through it and extract the one main event that is happening. if you find more than one event, prioritize the one that has a location and date specified. The output should be a list. all the list's elements headers such as "event name", "event description" etc should be in small case letters. and formatter exactly like below.
+  - event name
+  - event description
+  - event location
+  - event date
+  - event application deadline (if there is one)
+  - event price  (if there is one)
+
+
+    `;
+
+  const GPT_KEYS = [
+    "event name: ",
+    "event description: ",
+    "event location: ",
+    "event date: ",
+  ];
+  const KEYS = ["name", "description", "location", "date"];
+
+  const emailBodies = await getEmailBodies("mcgillclubs@blondmail.com");
+
+  const OpenAI = require("openai");
+  const openai = new OpenAI({
+    apiKey: "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",
+    dangerouslyAllowBrowser: true,
+  });
+
+  const result = await Promise.all(
+    emailBodies.map(async (email) => {
+      const message = GPT_PROMPT + email.body;
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: message }],
+        temperature: 0,
+        max_tokens: 700,
+      });
+
+      const response_arr = response.choices[0].message.content.split("\n");
+      let obj = {};
+      for (let i = 0; i < response_arr.length; i++) {
+        obj[KEYS[i]] = response_arr[i].split(GPT_KEYS[i])[1];
+      }
+      return obj;
+    })
+  );
+  console.log(result);
+  return result;
+
+  //   const message = GPT_PROMPT + emailBodies[0].body;
+  //   const response = await openai.chat.completions.create({
+  //     model: "gpt-3.5-turbo",
+  //     messages: [{ role: "user", content: message }],
+  //     temperature: 0,
+  //     max_tokens: 1000,
+  //   });
+
+  //   console.log(response.choices[0].message.content);
+};
+
+// parseEmails();
+parseEmails().then((r) => {
   app.get("/message", (req, res) => {
     res.json(r);
   });

@@ -3,7 +3,7 @@ import React from "react";
 function Gpt() {
   const OpenAI = require("openai");
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
 
